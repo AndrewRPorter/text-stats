@@ -35,7 +35,7 @@ function updateStatusBarItem(): void {
 
         // display selected words
         if (num_selected > 0) {
-            statusBarItem.text = statusBarItem.text + ` ${num_selected}`;
+            statusBarItem.text = statusBarItem.text + ` (${num_selected})`;
         }        
 
         statusBarItem.show();
