@@ -35,7 +35,7 @@ function updateStatusBarItem(): void {
 
         // display selected words
         if (num_selected > 0) {
-            statusBarItem.text = statusBarItem.text + ` (${num_selected})`;
+            statusBarItem.text = statusBarItem.text + ` (${num_selected} selected)`;
         }        
 
         statusBarItem.show();
@@ -51,19 +51,12 @@ function updateStatusBarItem(): void {
  */
 function getNumberOfWords(editor: vscode.TextEditor | undefined): number {
     let text = "";
-    let num_words = 0;
 
 	if (editor) {
         text = editor.document.getText().trim();
     }
-    
-    if (text === "") {
-        return 0;
-    }
 
-    num_words = text.split(" ").length;
-
-	return num_words;
+	return countWords(text);
 }
 
 /**
@@ -72,19 +65,12 @@ function getNumberOfWords(editor: vscode.TextEditor | undefined): number {
  */
 function getNumberOfSelectedWords(editor: vscode.TextEditor | undefined): number {
     let text = "";
-    let num_words = 0;
 
 	if (editor) {
         text = editor.document.getText(editor.selection).trim();
     }
     
-    if (text === "") {
-        return 0;
-    }
-    
-    num_words = text.split(" ").length;
-
-	return num_words;
+	return countWords(text);
 }
 
 /**
@@ -99,6 +85,21 @@ function getTextStatistics(editor: vscode.TextEditor | undefined): string {
     let stats = `Total Words: ${total_words}, Selected Words: ${total_selected}`;
 
     return stats;
+}
+
+/**
+ * Counts the number of words in a document
+ * @param text Input text from document
+ */
+function countWords(text: string): number {
+    let num_words = 0;
+
+    if (text === "") {
+        return 0;
+    }
+    
+    num_words = text.split(/\s+/).length;
+    return num_words;
 }
 
 export function deactivate() {}
