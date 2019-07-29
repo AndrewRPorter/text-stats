@@ -91,7 +91,7 @@ function getTextStatistics(editor: vscode.TextEditor | undefined): string {
  * Counts the number of words in a document
  * @param text Input text from document
  */
-function countWords(text: string): number {
+export function countWords(text: string): number {
     let num_words = 0;
 
     if (text === "") {
