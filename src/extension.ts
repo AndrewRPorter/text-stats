@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 
 let statusBarItem: vscode.StatusBarItem;
+type AutoDetect = 'on' | 'off';
 
 export function activate({ subscriptions }: vscode.ExtensionContext) {
     // display text statistics in pop-up to user
@@ -33,8 +34,8 @@ function updateStatusBarItem(): void {
             statusBarItem.text = `${num_words} words`;
         }
 
-        // display selected words
-        if (num_selected > 0) {
+        // display selected words if enabled in configuration
+        if (showSelected() && num_selected > 0) {
             statusBarItem.text = statusBarItem.text + ` (${num_selected} selected)`;
         }        
 
@@ -100,6 +101,13 @@ export function countWords(text: string): number {
     
     num_words = text.split(/\s+/).length;
     return num_words;
+}
+
+/**
+ * Checks configuration settings for showning selected words in status bar
+ */
+function showSelected(): boolean {
+    return vscode.workspace.getConfiguration("text-stats").showSelected === "on";
 }
 
 export function deactivate() {}

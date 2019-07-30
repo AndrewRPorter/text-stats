@@ -2,32 +2,47 @@
 	"name": "text-stats",
 	"displayName": "text-stats",
 	"description": "Display text statistics of the currently opened file",
-    "version": "0.0.1",
-    "publisher": "AndrewRPorter",
-    "icon": "images/icon.png",
+	"version": "0.0.1",
+	"publisher": "AndrewRPorter",
+	"repository": "https://github.com/AndrewRPorter/text-stats",
 	"engines": {
 		"vscode": "^1.15.0"
 	},
 	"categories": [
 		"Other"
-    ],
-    "bugs": {
-        "url": "https://github.com/AndrewRPorter/text-stats/issues"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/AndrewRPorter/text-stats.git"
-    },
+	],
+	"bugs": {
+		"url": "https://github.com/AndrewRPorter/text-stats/issues"
+	},
 	"activationEvents": [
-        "onCommand:extension.textStats",
-        "*"
+		"onCommand:extension.textStats",
+		"*"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [{
-			"command": "extension.textStats",
-			"title": "Text Statistics"
-		}]
+		"commands": [
+			{
+				"command": "extension.textStats",
+				"title": "Text Statistics"
+			}
+		],
+		"configuration": {
+			"id": "text-stats",
+			"type": "object",
+			"title": "text-stats",
+			"properties": {
+			  "text-stats.showSelected": {
+				"scope": "resource",
+				"type": "string",
+				"enum": [
+				  "off",
+				  "on"
+				],
+				"default": "on",
+				"description": "Display selected words in status bar"
+			  }
+			}
+		  }
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
