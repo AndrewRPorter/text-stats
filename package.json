@@ -39,7 +39,7 @@
 				  "on"
 				],
 				"default": "on",
-				"description": "Display selected words in status bar"
+				"description": "Toggle display of selected words in status bar"
 			  }
 			}
 		  }

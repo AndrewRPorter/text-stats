@@ -2,6 +2,10 @@
 
 Display various text statistics for the currently opened document in Visual Studio.
 
+## Configuration
+
+`showSelected`: Toggle display of selected words in status bar
+
 ## Development Setup
 
 Clone project
