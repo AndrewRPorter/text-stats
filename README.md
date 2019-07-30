@@ -5,6 +5,8 @@ Display various text statistics for the currently opened document in Visual Stud
 ## Configuration
 
 `showSelected`: Toggle display of selected words in status bar
+`showPercentageSelected`: Toggle display for percentage of selected words in status bar
+`numDigits`: Number of digits to round percentage selected to
 
 ## Development Setup
 

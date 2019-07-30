@@ -40,6 +40,24 @@
 				],
 				"default": "on",
 				"description": "Toggle display of selected words in status bar"
+			  },
+			  "text-stats.showPercentageSelected": {
+				"scope": "resource",
+				"type": "string",
+				"enum": [
+				  "off",
+				  "on"
+				],
+				"default": "on",
+				"description": "Toggle display for percentage of selected words in status bar"
+			  },
+			  "text-stats.numDigits": {
+				"scope": "resource",
+				"type": "integer",
+				"default": 2,
+				"maximum": 20,
+				"minimum": 0,
+				"description": "Number of digits to round percentage selected to"
 			  }
 			}
 		  }

@@ -1,4 +1,4 @@
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 import * as config from "./config";
 
 let statusBarItem: vscode.StatusBarItem;
@@ -28,7 +28,7 @@ function updateStatusBarItem(): void {
     let num_selected = getNumberOfSelectedWords(vscode.window.activeTextEditor);
 
     if (num_words > 0) {
-        if (num_words === 1 ) {
+        if (num_words === 1) {
             statusBarItem.text = "1 word";
         } else {
             statusBarItem.text = `${num_words} words`;
@@ -36,7 +36,12 @@ function updateStatusBarItem(): void {
 
         // display selected words if enabled in configuration
         if (config.showSelected() && num_selected > 0) {
-            statusBarItem.text = statusBarItem.text + ` (${num_selected} selected)`;
+            if (config.showPercentageSelected()) {
+                let percent_selected = getPercentageOfSelectedWords(num_words, num_selected);
+                statusBarItem.text = statusBarItem.text + ` (${num_selected} selected ${percent_selected}%)`;
+            } else {
+                statusBarItem.text = statusBarItem.text + ` (${num_selected} selected)`;
+            }
         }        
 
         statusBarItem.show();
@@ -75,6 +80,16 @@ function getNumberOfSelectedWords(editor: vscode.TextEditor | undefined): number
 }
 
 /**
+ * Calculates the percentage of words in the document that are selected
+ * @param num_total Total number of words in a document
+ * @param num_selected Total number of selected words
+ */
+function getPercentageOfSelectedWords(num_total: number, num_selected: number): number {
+    let percent_selected = (num_selected/num_total)*100;
+    return Number(percent_selected.toFixed(config.getRoundedDigits()));
+}
+
+/**
  * Returns document text statistics
  * 
  * @param editor Current active text editor
@@ -82,8 +97,9 @@ function getNumberOfSelectedWords(editor: vscode.TextEditor | undefined): number
 function getTextStatistics(editor: vscode.TextEditor | undefined): string {
     let total_words = getNumberOfWords(vscode.window.activeTextEditor);
     let total_selected = getNumberOfSelectedWords(vscode.window.activeTextEditor);
+    let percent_selected = getPercentageOfSelectedWords(total_words, total_selected);
 
-    let stats = `Total Words: ${total_words}, Selected Words: ${total_selected}`;
+    let stats = `Total Words: ${total_words}, Selected Words: ${total_selected}, Selected Percentage: ${percent_selected}%`;
 
     return stats;
 }
