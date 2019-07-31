@@ -6,7 +6,7 @@
 	"publisher": "AndrewRPorter",
 	"repository": "https://github.com/AndrewRPorter/text-stats",
 	"engines": {
-		"vscode": "^1.15.0"
+		"vscode": "^1.36.0"
 	},
 	"categories": [
 		"Other"
