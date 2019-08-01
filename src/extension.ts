@@ -114,6 +114,9 @@ export function countWords(text: string): number {
     if (text === "") {
         return 0;
     }
+
+    text = text.replace(/[^\w\s]/g, "");  // remove all non word characters from string
+    text = text.trim()
     
     num_words = text.split(/\s+/).length;
     return num_words;
