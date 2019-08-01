@@ -4,6 +4,8 @@ Display various text statistics for the currently opened document in Visual Stud
 
 ## Configuration
 
+- `includeNumbers`: Include numbers in text statistics
+
 - `showSelected`: Toggle display of selected words in status bar
 
 - `showPercentageSelected`: Toggle display for percentage of selected words in status bar

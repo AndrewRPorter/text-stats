@@ -31,6 +31,16 @@
 			"type": "object",
 			"title": "text-stats",
 			"properties": {
+			  "text-stats.includeNumbers": {
+				"scope": "resource",
+				"type": "string",
+				"enum": [
+					"off",
+					"on"
+				],
+				"default": "off",
+				"description": "Include numbers in text statistics"
+			  },
 			  "text-stats.showSelected": {
 				"scope": "resource",
 				"type": "string",
