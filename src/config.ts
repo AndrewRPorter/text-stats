@@ -1,6 +1,13 @@
 import * as vscode from 'vscode';
 
 /**
+ * Checks configuration settings for including numbers in text statistics
+ */
+export function includeNumbers(): boolean {
+    return vscode.workspace.getConfiguration("text-stats").includeNumbers === "on";
+}
+
+/**
  * Checks configuration settings for showing selected words in status bar
  */
 export function showSelected(): boolean {

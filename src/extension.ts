@@ -114,6 +114,17 @@ export function countWords(text: string): number {
     if (text === "") {
         return 0;
     }
+
+    text = text.replace(/ +(?= )/g, "");  // remove mutli-space spaces
+    text = text.replace(/[^\w\s]/g, "");  // remove all non word characters from string
+    
+    // exclude numbers from text if disabled in config
+    if (!config.includeNumbers()) {
+        text = text.replace(/\d+/g, "");  // remove all digits from text
+        console.log(text);
+    }
+
+    text = text.trim()
     
     num_words = text.split(/\s+/).length;
     return num_words;
