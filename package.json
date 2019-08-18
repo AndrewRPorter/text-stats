@@ -1,83 +1,81 @@
 {
-	"name": "text-stats",
-	"displayName": "text-stats",
-	"description": "Display text statistics of the currently opened file",
-	"version": "0.0.1",
-	"publisher": "AndrewRPorter",
-	"repository": "https://github.com/AndrewRPorter/text-stats",
-	"engines": {
-		"vscode": "^1.36.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"bugs": {
-		"url": "https://github.com/AndrewRPorter/text-stats/issues"
-	},
-	"activationEvents": [
-		"onCommand:extension.textStats",
-		"*"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "extension.textStats",
-				"title": "Text Statistics"
-			}
-		],
-		"configuration": {
-			"id": "text-stats",
-			"type": "object",
-			"title": "text-stats",
-			"properties": {
-			  "text-stats.showSelected": {
-				"scope": "resource",
-				"type": "string",
-				"enum": [
-				  "off",
-				  "on"
-				],
-				"default": "on",
-				"description": "Toggle display of selected words in status bar"
-			  },
-			  "text-stats.showPercentageSelected": {
-				"scope": "resource",
-				"type": "string",
-				"enum": [
-				  "off",
-				  "on"
-				],
-				"default": "on",
-				"description": "Toggle display for percentage of selected words in status bar"
-			  },
-			  "text-stats.numDigits": {
-				"scope": "resource",
-				"type": "integer",
-				"default": 2,
-				"maximum": 20,
-				"minimum": 0,
-				"description": "Number of digits to round percentage selected to"
-			  }
-			}
-		  }
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "npm run compile",
-		"test": "node ./out/test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/glob": "^7.1.1",
-		"@types/mocha": "^5.2.6",
-		"@types/node": "^10.12.21",
-		"@types/vscode": "^1.36.0",
-		"glob": "^7.1.4",
-		"mocha": "^6.1.4",
-		"typescript": "^3.3.1",
-		"tslint": "^5.12.1",
-		"vscode-test": "^1.0.0-next.0"
-	}
+    "name": "text-stats",
+    "displayName": "text-stats",
+    "description": "Display text statistics of the currently opened file",
+    "version": "0.1.0",
+    "publisher": "AndrewRPorter",
+    "repository": "https://github.com/AndrewRPorter/text-stats",
+    "engines": {
+        "vscode": "^1.36.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "bugs": {
+        "url": "https://github.com/AndrewRPorter/text-stats/issues"
+    },
+    "activationEvents": [
+        "onCommand:extension.textStats",
+        "*"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [{
+            "command": "extension.textStats",
+            "title": "Text Statistics"
+        }],
+        "configuration": {
+            "id": "text-stats",
+            "type": "object",
+            "title": "text-stats",
+            "properties": {
+                "text-stats.showSelected": {
+                    "scope": "resource",
+                    "type": "string",
+                    "enum": [
+                        "off",
+                        "on"
+                    ],
+                    "default": "on",
+                    "description": "Toggle display of selected words in status bar"
+                },
+                "text-stats.showPercentageSelected": {
+                    "scope": "resource",
+                    "type": "string",
+                    "enum": [
+                        "off",
+                        "on"
+                    ],
+                    "default": "on",
+                    "description": "Toggle display for percentage of selected words in status bar"
+                },
+                "text-stats.numDigits": {
+                    "scope": "resource",
+                    "type": "integer",
+                    "default": 2,
+                    "maximum": 20,
+                    "minimum": 0,
+                    "description": "Number of digits to round percentage selected to"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile",
+        "test": "node ./out/test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/glob": "^7.1.1",
+        "@types/mocha": "^5.2.6",
+        "@types/node": "^10.12.21",
+        "@types/vscode": "^1.36.0",
+        "glob": "^7.1.4",
+        "mocha": "^6.1.4",
+        "typescript": "^3.3.1",
+        "tslint": "^5.12.1",
+        "vscode-test": "^1.0.0-next.0"
+    }
 }
