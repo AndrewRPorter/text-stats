@@ -2,7 +2,7 @@
     "name": "text-stats",
     "displayName": "text-stats",
     "description": "Display text statistics of the currently opened file",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "publisher": "AndrewRPorter",
     "repository": "https://github.com/AndrewRPorter/text-stats",
     "engines": {
